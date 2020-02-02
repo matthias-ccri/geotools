@@ -622,15 +622,12 @@ public class StaticGeometry {
     public static boolean isNull(Object o) {
         return o == null;
     }
-    /**
-     * @param value
-     * @param low
-     * @param high
-     * @return true if value is between low and high
-     */
-    public static boolean between(Object o, Object o_low, Object o_high) {
 
-        return StaticGeometry.greaterEqualThan(o, o_low) && StaticGeometry.lessEqualThan(o, o_high);
+    /** @return true if value is between low and high */
+    public static boolean between(Object value, Object low, Object high) {
+
+        return StaticGeometry.greaterEqualThan(value, low)
+                && StaticGeometry.lessEqualThan(value, high);
     }
 
     public static boolean not(Boolean b) {

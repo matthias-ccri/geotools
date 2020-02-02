@@ -133,15 +133,7 @@ final class GridCoverageRendererUtilities {
                     Errors.format(ErrorKeys.SOURCE_CANT_BE_NULL_$1, name));
     }
 
-    /**
-     * Reprojecting the input coverage using the provided parameters.
-     *
-     * @param gc
-     * @param crs
-     * @param interpolation
-     * @return
-     * @throws FactoryException
-     */
+    /** Reprojecting the input coverage using the provided parameters. */
     static GridCoverage2D reproject(
             final GridCoverage2D gc,
             CoordinateReferenceSystem crs,
@@ -167,14 +159,7 @@ final class GridCoverageRendererUtilities {
                 ((Resample) processor.getOperation("Resample")).doOperation(param, hints);
     }
 
-    /**
-     * Cropping the provided coverage to the requested geographic area.
-     *
-     * @param gc
-     * @param envelope
-     * @param crs
-     * @return
-     */
+    /** Cropping the provided coverage to the requested geographic area. */
     static GridCoverage2D crop(
             GridCoverage2D gc, GeneralEnvelope envelope, double[] background, final Hints hints) {
         final GeneralEnvelope oldEnvelope = (GeneralEnvelope) gc.getEnvelope();
@@ -230,16 +215,7 @@ final class GridCoverageRendererUtilities {
         return translatedCoverage;
     }
 
-    /**
-     * Mosaicking the provided coverages to the requested geographic area.
-     *
-     * @param alphas
-     * @param background
-     * @param gc
-     * @param envelope
-     * @param crs
-     * @return
-     */
+    /** Mosaicking the provided coverages to the requested geographic area. */
     static GridCoverage2D mosaic(
             List<GridCoverage2D> coverages,
             List<GridCoverage2D> alphas,
@@ -301,11 +277,7 @@ final class GridCoverageRendererUtilities {
         }
     }
 
-    /**
-     * @param inputEnvelope
-     * @return
-     * @throws Exception
-     */
+    /** */
     static GeneralEnvelope reprojectEnvelope(
             GeneralEnvelope inputEnvelope, final CoordinateReferenceSystem outputCRS)
             throws Exception {
@@ -324,12 +296,7 @@ final class GridCoverageRendererUtilities {
         return null;
     }
 
-    /**
-     * @param inputEnvelope
-     * @param targetCRS
-     * @return
-     * @throws Exception
-     */
+    /** */
     static GeneralEnvelope reprojectEnvelopeWithWGS84Pivot(
             GeneralEnvelope inputEnvelope, CoordinateReferenceSystem targetCRS) throws Exception {
 
@@ -380,10 +347,7 @@ final class GridCoverageRendererUtilities {
         }
     }
 
-    /**
-     * @param color
-     * @return
-     */
+    /** */
     public static double[] colorToArray(Color color) {
         if (color == null) {
             return null;

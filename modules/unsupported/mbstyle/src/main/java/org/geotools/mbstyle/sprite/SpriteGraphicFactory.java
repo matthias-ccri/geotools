@@ -169,9 +169,6 @@ public class SpriteGraphicFactory implements ExternalGraphicFactory, GraphicCach
      * Parse the parameters from the URL fragment in the provided URL (interpreting the fragment
      * like a query string). The "name" parameter is required and will cause an {@link
      * MBFormatException} if missing. The "size" parameter is optional and defaults to "1".
-     *
-     * @param url
-     * @return
      */
     protected static Map<String, String> parseFragmentParams(URL url) {
         String urlStr = url.toExternalForm();
@@ -259,7 +256,6 @@ public class SpriteGraphicFactory implements ExternalGraphicFactory, GraphicCach
      *
      * @param loc The URL.
      * @return The URL, without an appended icon name.
-     * @throws MalformedURLException
      */
     protected static URL parseBaseUrl(URL loc) throws MalformedURLException {
         String urlStr = loc.toExternalForm();
@@ -277,7 +273,6 @@ public class SpriteGraphicFactory implements ExternalGraphicFactory, GraphicCach
      *
      * @param baseUrl The base URL of the Mapbox sprite source (no extension).
      * @return The sprite sheet index
-     * @throws IOException
      */
     protected SpriteIndex getSpriteIndex(URL baseUrl) throws IOException {
         SpriteIndex spriteIndex = indexCache.get(baseUrl);

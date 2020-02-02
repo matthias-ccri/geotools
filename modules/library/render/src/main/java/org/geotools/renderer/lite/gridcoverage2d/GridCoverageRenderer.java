@@ -219,8 +219,6 @@ public final class GridCoverageRenderer {
      *     Transform is used directly to convert from world coordinates to screen coordinates.
      *     Otherwise, a standard {@link GridToEnvelopeMapper} is used to calculate the affine
      *     transform.
-     * @throws TransformException
-     * @throws NoninvertibleTransformException
      */
     public GridCoverageRenderer(
             final CoordinateReferenceSystem destinationCRS,
@@ -243,8 +241,6 @@ public final class GridCoverageRenderer {
      *     Otherwise, a standard {@link GridToEnvelopeMapper} is used to calculate the affine
      *     transform.
      * @param newHints {@link RenderingHints} to control this rendering process.
-     * @throws TransformException
-     * @throws NoninvertibleTransformException
      */
     public GridCoverageRenderer(
             final CoordinateReferenceSystem destinationCRS,
@@ -367,11 +363,8 @@ public final class GridCoverageRenderer {
      * {@link Graphics2D} or as the basis to build a final image. Will return null if there is
      * nothing to render.
      *
-     * @param gridCoverage
-     * @param symbolizer
      * @return The transformed image, or null if the coverage does not lie within the rendering
      *     bounds
-     * @throws Exception
      */
     public RenderedImage renderImage(
             final GridCoverage2D gridCoverage,
@@ -487,13 +480,7 @@ public final class GridCoverageRenderer {
         return symbolizerGC;
     }
 
-    /**
-     * @param preResample
-     * @param doReprojection
-     * @param bkgValues
-     * @return
-     * @throws FactoryException
-     */
+    /** */
     private GridCoverage2D reproject(
             GridCoverage2D preResample, boolean doReprojection, double[] bkgValues)
             throws FactoryException {
@@ -525,12 +512,7 @@ public final class GridCoverageRenderer {
         }
     }
 
-    /**
-     * @param destinationEnvelope
-     * @param backgroundValues
-     * @param gridCoverage
-     * @return
-     */
+    /** */
     private GridCoverage2D crop(
             final GridCoverage2D inputCoverage,
             final GeneralEnvelope destinationEnvelope,
@@ -596,11 +578,7 @@ public final class GridCoverageRenderer {
         return outputCoverage;
     }
 
-    /**
-     * @param bkgValues
-     * @param preResample
-     * @return
-     */
+    /** */
     private GridCoverage2D affine(
             GridCoverage2D input, double[] bkgValues, RasterSymbolizer symbolizer) {
         // NOTICE that at this stage the image we get should be 8 bits, either RGB, RGBA, Gray,
@@ -717,13 +695,8 @@ public final class GridCoverageRenderer {
      * Turns the coverage into a rendered image applying the necessary transformations and the
      * symbolizer
      *
-     * @param gridCoverage
-     * @param symbolizer
      * @return The transformed image, or null if the coverage does not lie within the rendering
      *     bounds
-     * @throws FactoryException
-     * @throws TransformException
-     * @throws NoninvertibleTransformException
      */
     public RenderedImage renderImage(
             final GridCoverage2D gridCoverage,
@@ -1096,9 +1069,6 @@ public final class GridCoverageRenderer {
     /**
      * Forces adding ROI to the coverage in case it's missing. It will use the renderer image
      * footprint.
-     *
-     * @param coverage
-     * @return
      */
     private GridCoverage2D addRoiIfMissing(GridCoverage2D coverage) {
         RenderedImage input = coverage.getRenderedImage();
@@ -1160,8 +1130,6 @@ public final class GridCoverageRenderer {
      * #getCoordinateSystem}.
      *
      * @param graphics the {@link Graphics2D} context in which to paint.
-     * @param metaBufferedEnvelope
-     * @throws Exception
      * @throws UnsupportedOperationException if the transformation from grid to coordinate system in
      *     the GridCoverage is not an AffineTransform
      */
@@ -1179,8 +1147,6 @@ public final class GridCoverageRenderer {
      * #getCoordinateSystem}.
      *
      * @param graphics the {@link Graphics2D} context in which to paint.
-     * @param metaBufferedEnvelope
-     * @throws Exception
      * @throws UnsupportedOperationException if the transformation from grid to coordinate system in
      *     the GridCoverage is not an AffineTransform
      */
@@ -1219,7 +1185,6 @@ public final class GridCoverageRenderer {
      * the coordinate system given by {@link #getCoordinateSystem}.
      *
      * @param graphics the {@link Graphics2D} context in which to paint.
-     * @throws Exception
      * @throws UnsupportedOperationException if the transformation from grid to coordinate system in
      *     the GridCoverage is not an AffineTransform
      */
@@ -1418,9 +1383,6 @@ public final class GridCoverageRenderer {
     /**
      * Takes into account that the band selection has been delegated down to the reader by producing
      * a new channel selection
-     *
-     * @param symbolizer
-     * @return
      */
     public static RasterSymbolizer setupSymbolizerForBandsSelection(RasterSymbolizer symbolizer) {
         ChannelSelection selection = symbolizer.getChannelSelection();
@@ -1447,13 +1409,7 @@ public final class GridCoverageRenderer {
         return symbolizer;
     }
 
-    /**
-     * Checks if band selection is present, and can be delegated down to the reader
-     *
-     * @param reader
-     * @param symbolizer
-     * @return
-     */
+    /** Checks if band selection is present, and can be delegated down to the reader */
     public static boolean isBandsSelectionApplicable(
             GridCoverageReader reader, RasterSymbolizer symbolizer) {
         int[] bandIndices =

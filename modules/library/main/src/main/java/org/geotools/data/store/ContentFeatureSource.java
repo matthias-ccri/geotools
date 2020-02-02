@@ -723,9 +723,6 @@ public abstract class ContentFeatureSource implements SimpleFeatureSource {
     /**
      * Returns all the properties used in the sortBy (excluding primary keys and the like, e.g.,
      * natural sorting)
-     *
-     * @param sortBy
-     * @return
      */
     private Set<String> getSortPropertyNames(SortBy[] sortBy) {
         Set<String> result = new HashSet<>();
@@ -763,7 +760,6 @@ public abstract class ContentFeatureSource implements SimpleFeatureSource {
      *
      * @param visitor Visitor called for each feature
      * @param progress Used to report progress; and errors on a feature by feature basis
-     * @throws IOException
      */
     public void accepts(
             Query query,
@@ -997,10 +993,6 @@ public abstract class ContentFeatureSource implements SimpleFeatureSource {
      *
      * <p>If the current feature source already has a defining query it is joined to the specified
      * query.
-     *
-     * @param query
-     * @return
-     * @throws IOException
      */
     public final ContentFeatureSource getView(Query query) throws IOException {
         query = joinQuery(query);
@@ -1128,35 +1120,10 @@ public abstract class ContentFeatureSource implements SimpleFeatureSource {
     /**
      * Builds the query capabilities for this feature source. The default implementation returns a
      * newly built QueryCapabilities, subclasses are advised to build their own.
-     *
-     * @return
-     * @throws IOException
      */
     protected QueryCapabilities buildQueryCapabilities() {
         return new QueryCapabilities();
     }
-
-    /**
-     * SimpleFeatureCollection optimized for read-only access.
-     *
-     * <p>Available via getView( filter ):
-     *
-     * <ul>
-     *   <li>getFeatures().sort( sort )
-     *   <li>getFeatures( filter ).sort( sort )
-     * </ul>
-     *
-     * <p>In particular this method of data access is intended for rendering and other high speed
-     * operations; care should be taken to optimize the use of FeatureVisitor.
-     *
-     * <p>
-     *
-     * @param transactionState
-     * @param filter
-     * @return readonly access
-     */
-
-    // protected abstract SimpleFeatureCollection readonly(ContentState state, Filter filter);
 
     public QueryCapabilities getQueryCapabilities() {
         // lazy initialization, so that the subclass has all its data structures ready

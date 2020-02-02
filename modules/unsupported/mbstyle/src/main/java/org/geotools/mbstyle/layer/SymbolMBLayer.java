@@ -239,7 +239,6 @@ public class SymbolMBLayer extends MBLayer {
         /**
          * Quickly grab y justification for jsonString.
          *
-         * @param jsonString
          * @return vertical anchor, defaults to 0.5
          */
         public static double getAnchorY(String jsonString) {
@@ -248,7 +247,6 @@ public class SymbolMBLayer extends MBLayer {
         /**
          * Quickly grab x justification for jsonString.
          *
-         * @param jsonString
          * @return horizontal anchor, defaults to 0.5
          */
         public static double getAnchorX(String jsonString) {
@@ -336,7 +334,6 @@ public class SymbolMBLayer extends MBLayer {
      * <p>Distance between two symbol anchors.
      *
      * @return Number representing distance between two symbol anchors
-     * @throws MBFormatException
      */
     public Number getSymbolSpacing() throws MBFormatException {
         return parse.optional(Number.class, layout, "symbol-spacing", 250);
@@ -346,7 +343,6 @@ public class SymbolMBLayer extends MBLayer {
      * Access symbol-spacing, defaults to 250.
      *
      * @return Number representing distance between two symbol anchors
-     * @throws MBFormatException
      */
     public Expression symbolSpacing() throws MBFormatException {
         return parse.percentage(layout, "symbol-spacing", 250);
@@ -360,7 +356,6 @@ public class SymbolMBLayer extends MBLayer {
      * point symbol layer placed after a line symbol layer.
      *
      * @return Whether or not the symbols should avoid edges.
-     * @throws MBFormatException
      */
     public Boolean getSymbolAvoidEdges() throws MBFormatException {
         return parse.getBoolean(layout, "symbol-avoid-edges", false);
@@ -374,7 +369,6 @@ public class SymbolMBLayer extends MBLayer {
      * prevent collisions, or if it is a point symbol layer placed after a line symbol layer.
      *
      * @return Whether or not the symbols should avoid edges.
-     * @throws MBFormatException
      */
     public Expression symbolAvoidEdges() {
         return parse.bool(layout, "symbol-avoid-edges", false);
@@ -386,7 +380,6 @@ public class SymbolMBLayer extends MBLayer {
      * <p>If true, the icon will be visible even if it collides with other previously drawn symbols.
      *
      * @return Whether or not the symbols should be allowed to overlap other symbols
-     * @throws MBFormatException
      */
     public Boolean getIconAllowOverlap() throws MBFormatException {
         return parse.getBoolean(layout, "icon-allow-overlap", false);
@@ -411,7 +404,6 @@ public class SymbolMBLayer extends MBLayer {
      * <p>If true, other symbols can be visible even if they collide with the icon.
      *
      * @return Whether or not other symbols should be allowed to overlap symbols in this layer.
-     * @throws MBFormatException
      */
     public Boolean getIconIgnorePlacement() throws MBFormatException {
         return parse.getBoolean(layout, "icon-ignore-placement", false);
@@ -424,7 +416,6 @@ public class SymbolMBLayer extends MBLayer {
      * even if they collide with the icon.
      *
      * @return Whether or not other symbols should be allowed to overlap symbols in this layer.
-     * @throws MBFormatException
      */
     public Expression iconIgnorePlacement() {
         return parse.bool(layout, "icon-ignore-placement", false);
@@ -437,7 +428,6 @@ public class SymbolMBLayer extends MBLayer {
      * other symbols and the text does not.
      *
      * @return Whether or not the label may be drawn when the icon is not drawn due to collisions
-     * @throws MBFormatException
      */
     public Boolean getIconOptional() throws MBFormatException {
         return parse.getBoolean(layout, "icon-optional", false);
@@ -454,7 +444,6 @@ public class SymbolMBLayer extends MBLayer {
      * other symbols and the text does not.
      *
      * @return Whether or not the label may be drawn when the icon is not drawn due to collisions
-     * @throws MBFormatException
      */
     public Expression iconOptional() {
         return parse.bool(layout, "icon-optional", false);
@@ -503,7 +492,6 @@ public class SymbolMBLayer extends MBLayer {
      * <p>Scale factor for icon. 1 is original size, 3 triples the size.
      *
      * @return The icon size.
-     * @throws MBFormatException
      */
     public Number getIconSize() throws MBFormatException {
         return parse.optional(Number.class, layout, "icon-size", 1.0);
@@ -513,7 +501,6 @@ public class SymbolMBLayer extends MBLayer {
      * Access icon-size, defaults to 1.
      *
      * @return The icon size.
-     * @throws MBFormatException
      */
     public Expression iconSize() {
         return parse.percentage(layout, "icon-size", 1.0);
@@ -584,7 +571,6 @@ public class SymbolMBLayer extends MBLayer {
      * (Optional) A string with {tokens} replaced, referencing the data property to pull from.
      *
      * @return The name of the icon image
-     * @throws MBFormatException
      */
     public String getIconImage() throws MBFormatException {
         return parse.optional(String.class, layout, "icon-image", null);
@@ -599,7 +585,6 @@ public class SymbolMBLayer extends MBLayer {
      * Access icon-image as literal or function expression
      *
      * @return The name of the icon image
-     * @throws MBFormatException
      */
     public Expression iconImage() {
         return parse.string(layout, "icon-image", "");
@@ -611,7 +596,6 @@ public class SymbolMBLayer extends MBLayer {
      * <p>Rotates the icon clockwise.
      *
      * @return The icon rotation
-     * @throws MBFormatException
      */
     public Number getIconRotate() throws MBFormatException {
         return parse.optional(Number.class, layout, "icon-rotate", 0.0);
@@ -621,7 +605,6 @@ public class SymbolMBLayer extends MBLayer {
      * Access icon-rotate as literal or function expression
      *
      * @return The icon rotation
-     * @throws MBFormatException
      */
     public Expression iconRotate() throws MBFormatException {
         return parse.percentage(layout, "icon-rotate", 0);
@@ -634,7 +617,6 @@ public class SymbolMBLayer extends MBLayer {
      * collisions.
      *
      * @return Padding around the icon for collision-detection.
-     * @throws MBFormatException
      */
     public Number getIconPadding() throws MBFormatException {
         return parse.optional(Number.class, layout, "icon-padding", 2.0);
@@ -644,7 +626,6 @@ public class SymbolMBLayer extends MBLayer {
      * Access icon-padding as literal or function expression
      *
      * @return Padding around the icon for collision-detection.
-     * @throws MBFormatException
      */
     public Expression iconPadding() throws MBFormatException {
         return parse.percentage(layout, "icon-padding", 2.0);
@@ -658,7 +639,6 @@ public class SymbolMBLayer extends MBLayer {
      *
      * @return Whether to flip the icon if the orientation of the geometry would cause it to be
      *     rendered upside-down
-     * @throws MBFormatException
      */
     public Boolean getIconKeepUpright() throws MBFormatException {
         return parse.getBoolean(layout, "icon-keep-upright", false);
@@ -674,7 +654,6 @@ public class SymbolMBLayer extends MBLayer {
      *
      * @return Whether to flip the icon if the orientation of the geometry would cause it to be
      *     rendered upside-down
-     * @throws MBFormatException
      */
     public Expression iconKeepUpright() {
         return parse.bool(layout, "icon-keep-upright", false);
@@ -688,7 +667,6 @@ public class SymbolMBLayer extends MBLayer {
      * the rotated direction was up.
      *
      * @return Offset of the icon from its anchor
-     * @throws MBFormatException
      */
     public double[] getIconOffset() throws MBFormatException {
         return parse.array(layout, "icon-offset", new double[] {0.0, 0.0});
@@ -698,7 +676,6 @@ public class SymbolMBLayer extends MBLayer {
      * Access icon-offset
      *
      * @return Offset of the icon from its anchor
-     * @throws MBFormatException
      */
     public Point iconOffset() throws MBFormatException {
         if (layout.get("icon-offset") != null) {
@@ -802,7 +779,6 @@ public class SymbolMBLayer extends MBLayer {
      * {field_name}.
      *
      * @return Value to use for a text label
-     * @throws MBFormatException
      */
     public String getTextField() throws MBFormatException {
         return parse.optional(String.class, layout, "text-field", "");
@@ -812,7 +788,6 @@ public class SymbolMBLayer extends MBLayer {
      * Access text-field as literal or function expression
      *
      * @return Value to use for a text label
-     * @throws MBFormatException
      */
     public Expression textField() throws MBFormatException {
         return parse.string(layout, "text-field", "");
@@ -861,7 +836,6 @@ public class SymbolMBLayer extends MBLayer {
      * <p>Font size.
      *
      * @return The font size
-     * @throws MBFormatException
      */
     public Number getTextSize() throws MBFormatException {
         return parse.optional(Number.class, layout, "text-size", 16.0);
@@ -871,7 +845,6 @@ public class SymbolMBLayer extends MBLayer {
      * Access text-size as literal or function expression
      *
      * @return The font size
-     * @throws MBFormatException
      */
     public Expression textSize() throws MBFormatException {
         return parse.percentage(layout, "text-size", 16.0);
@@ -883,7 +856,6 @@ public class SymbolMBLayer extends MBLayer {
      * <p>The maximum line width for text wrapping.
      *
      * @return Maximum label width
-     * @throws MBFormatException
      */
     public Number getTextMaxWidth() throws MBFormatException {
         return parse.optional(Number.class, layout, "text-max-width", 10.0);
@@ -893,7 +865,6 @@ public class SymbolMBLayer extends MBLayer {
      * Access text-max-width as literal or function expression
      *
      * @return Maximum label width
-     * @throws MBFormatException
      */
     public Expression textMaxWidth() throws MBFormatException {
         return parse.percentage(layout, "text-max-width", 10.0);
@@ -910,7 +881,6 @@ public class SymbolMBLayer extends MBLayer {
      * <p>Text leading value for multi-line text.
      *
      * @return Label line height
-     * @throws MBFormatException
      */
     public Number getTextLineHeight() throws MBFormatException {
         return parse.optional(Number.class, layout, "text-line-height", 1.2);
@@ -920,7 +890,6 @@ public class SymbolMBLayer extends MBLayer {
      * Access text-line-height as literal or function expression
      *
      * @return Label line height
-     * @throws MBFormatException
      */
     public Expression textLineHeight() throws MBFormatException {
         return parse.percentage(layout, "text-line-height", 1.2);
@@ -932,7 +901,6 @@ public class SymbolMBLayer extends MBLayer {
      * <p>Text tracking amount.
      *
      * @return Spacing between label characters
-     * @throws MBFormatException
      */
     public Number getTextLetterSpacing() throws MBFormatException {
         return parse.optional(Number.class, layout, "text-letter-spacing", 0.0);
@@ -942,7 +910,6 @@ public class SymbolMBLayer extends MBLayer {
      * Access text-line-height as literal or function expression
      *
      * @return Spacing between label characters
-     * @throws MBFormatException
      */
     public Expression textLetterSpacing() throws MBFormatException {
         return parse.percentage(layout, "text-letter-spacing", 0.0);
@@ -1068,7 +1035,6 @@ public class SymbolMBLayer extends MBLayer {
      * <p>Maximum angle change between adjacent characters.
      *
      * @return Maximum label angle between characters when following a line
-     * @throws MBFormatException
      */
     public Number getTextMaxAngle() throws MBFormatException {
         return parse.optional(Number.class, layout, "text-max-angle", 45.0);
@@ -1078,7 +1044,6 @@ public class SymbolMBLayer extends MBLayer {
      * Access text-max-angle as literal or function expression
      *
      * @return Maximum label angle between characters when following a line
-     * @throws MBFormatException
      */
     public Expression textMaxAngle() {
         return parse.percentage(layout, "text-max-angle", 45.0);
@@ -1095,7 +1060,6 @@ public class SymbolMBLayer extends MBLayer {
      * <p>Rotates the text clockwise.
      *
      * @return Rotation angle of the label
-     * @throws MBFormatException
      */
     public Number getTextRotate() throws MBFormatException {
         return parse.optional(Number.class, layout, "text-rotate", 0.0);
@@ -1105,7 +1069,6 @@ public class SymbolMBLayer extends MBLayer {
      * Access text-rotate as literal or function expression
      *
      * @return Rotation angle of the label
-     * @throws MBFormatException
      */
     public Expression textRotate() throws MBFormatException {
         return parse.percentage(layout, "text-rotate", 0.0);
@@ -1118,7 +1081,6 @@ public class SymbolMBLayer extends MBLayer {
      * collisions.
      *
      * @return Padding around the label for detecting collisions
-     * @throws MBFormatException
      */
     public Number getTextPadding() throws MBFormatException {
         return parse.optional(Number.class, layout, "text-padding", 2.0);
@@ -1128,7 +1090,6 @@ public class SymbolMBLayer extends MBLayer {
      * Access text-padding as literal or function expression
      *
      * @return Padding around the label for detecting collisions
-     * @throws MBFormatException
      */
     public Expression textPadding() throws MBFormatException {
         return parse.percentage(layout, "text-padding", 2.0);
@@ -1142,7 +1103,6 @@ public class SymbolMBLayer extends MBLayer {
      *
      * @return Whether to flip the label if the orientation of the geometry would cause it to be
      *     rendered upside-down
-     * @throws MBFormatException
      */
     public Boolean getTextKeepUpright() throws MBFormatException {
         return parse.getBoolean(layout, "text-keep-upright", true);
@@ -1156,7 +1116,6 @@ public class SymbolMBLayer extends MBLayer {
      * <p>If true, the text may be flipped vertically to prevent it from being rendered upside-down.
      *
      * @return Boolean
-     * @throws MBFormatException
      */
     public Expression textKeepUpright() {
         return parse.bool(layout, "text-keep-upright", true);
@@ -1186,11 +1145,7 @@ public class SymbolMBLayer extends MBLayer {
         }
     }
 
-    /**
-     * Returns true if the a text-transform property explicitly provided
-     *
-     * @return
-     */
+    /** Returns true if the a text-transform property explicitly provided */
     public boolean hasTextTransform() {
         return parse.isPropertyDefined(layout, "text-transform");
     }
@@ -1213,7 +1168,6 @@ public class SymbolMBLayer extends MBLayer {
      * negative values indicate left and up.
      *
      * @return Offset of the label from its anchor.
-     * @throws MBFormatException
      */
     public double[] getTextOffset() throws MBFormatException {
         return parse.array(layout, "text-offset", new double[] {0.0, 0.0});
@@ -1223,7 +1177,6 @@ public class SymbolMBLayer extends MBLayer {
      * Access text-offset
      *
      * @return Offset of the label from its anchor.
-     * @throws MBFormatException
      */
     public Point textOffset() throws MBFormatException {
         if (layout.get("text-offset") != null) {
@@ -1256,7 +1209,6 @@ public class SymbolMBLayer extends MBLayer {
      * <p>If true, the text will be visible even if it collides with other previously drawn symbols.
      *
      * @return Whether or not the text should be allowed to overlap other symbols
-     * @throws MBFormatException
      */
     public Boolean getTextAllowOverlap() throws MBFormatException {
         return parse.getBoolean(layout, "text-allow-overlap", false);
@@ -1281,7 +1233,6 @@ public class SymbolMBLayer extends MBLayer {
      * <p>If true, other symbols can be visible even if they collide with the text.
      *
      * @return Whether or not other symbols should be allowed to overlap text in this layer.
-     * @throws MBFormatException
      */
     public Boolean getTextIgnorePlacement() throws MBFormatException {
         return parse.getBoolean(layout, "text-ignore-placement", false);
@@ -1294,7 +1245,6 @@ public class SymbolMBLayer extends MBLayer {
      * <p>If true, other symbols can be visible even if they collide with the text.
      *
      * @return Boolean
-     * @throws MBFormatException
      */
     public Expression textIgnorePlacement() {
         return parse.bool(layout, "text-ignore-placement", false);
@@ -1307,7 +1257,6 @@ public class SymbolMBLayer extends MBLayer {
      * other symbols and the icon does not.
      *
      * @return Whether or not the symbol may be drawn when the label is not drawn due to collisions
-     * @throws MBFormatException
      */
     public Boolean getTextOptional() throws MBFormatException {
         return parse.getBoolean(layout, "text-optional", false);
@@ -1323,7 +1272,6 @@ public class SymbolMBLayer extends MBLayer {
      * other symbols and the icon does not.
      *
      * @return Boolean
-     * @throws MBFormatException
      */
     public Expression textOptional() {
         return parse.bool(layout, "text-optional", false);
@@ -1335,7 +1283,6 @@ public class SymbolMBLayer extends MBLayer {
      * <p>The opacity at which the icon will be drawn.
      *
      * @return Opacity of the icon
-     * @throws MBFormatException
      */
     public Number getIconOpacity() throws MBFormatException {
         return parse.optional(Number.class, paint, "icon-opacity", 1.0);
@@ -1345,7 +1292,6 @@ public class SymbolMBLayer extends MBLayer {
      * Access icon-opacity as literal or function expression
      *
      * @return Opacity of the icon
-     * @throws MBFormatException
      */
     public Expression iconOpacity() throws MBFormatException {
         return parse.percentage(paint, "icon-opacity", 1.0);
@@ -1397,7 +1343,6 @@ public class SymbolMBLayer extends MBLayer {
      * <p>Distance of halo to the icon outline.
      *
      * @return Width of the icon halo
-     * @throws MBFormatException
      */
     public Number getIconHaloWidth() throws MBFormatException {
         return parse.optional(Number.class, paint, "icon-halo-width", 0.0);
@@ -1407,7 +1352,6 @@ public class SymbolMBLayer extends MBLayer {
      * Access icon-halo-width as literal or function expression
      *
      * @return Width of the icon halo
-     * @throws MBFormatException
      */
     public Expression iconHaloWidth() {
         return parse.percentage(paint, "icon-halo-width", 0.0);
@@ -1419,7 +1363,6 @@ public class SymbolMBLayer extends MBLayer {
      * <p>Fade out the halo towards the outside.
      *
      * @return Size of the halo fade
-     * @throws MBFormatException
      */
     public Number getIconHaloBlur() throws MBFormatException {
         return parse.optional(Number.class, paint, "icon-halo-blur", 0.0);
@@ -1429,7 +1372,6 @@ public class SymbolMBLayer extends MBLayer {
      * Access icon-halo-blur as literal or function expression
      *
      * @return Size of the halo fade
-     * @throws MBFormatException
      */
     public Expression iconHaloBlur() {
         return parse.percentage(paint, "icon-halo-blur", 0.0);
@@ -1442,7 +1384,6 @@ public class SymbolMBLayer extends MBLayer {
      * indicate right and down, while negative values indicate left and up.
      *
      * @return Translation of the icon from its origin
-     * @throws MBFormatException
      */
     public int[] getIconTranslate() throws MBFormatException {
         return parse.array(paint, "icon-translate", new int[] {0, 0});
@@ -1455,7 +1396,6 @@ public class SymbolMBLayer extends MBLayer {
      * indicate right and down, while negative values indicate left and up.
      *
      * @return Translation of the icon from its origin
-     * @throws MBFormatException
      */
     public Point iconTranslate() {
         int[] translate = getIconTranslate();
@@ -1514,7 +1454,6 @@ public class SymbolMBLayer extends MBLayer {
      * <p>The opacity at which the text will be drawn.
      *
      * @return Opacity of the label
-     * @throws MBFormatException
      */
     public Number getTextOpacity() throws MBFormatException {
         return parse.optional(Number.class, paint, "text-opacity", 1.0);
@@ -1524,7 +1463,6 @@ public class SymbolMBLayer extends MBLayer {
      * Access text-opacity as literal or function expression
      *
      * @return Opacity of the label
-     * @throws MBFormatException
      */
     public Expression textOpacity() throws MBFormatException {
         return parse.percentage(paint, "text-opacity", 1.0);
@@ -1536,7 +1474,6 @@ public class SymbolMBLayer extends MBLayer {
      * <p>The color with which the text will be drawn.
      *
      * @return The label color.
-     * @throws MBFormatException
      */
     public Color getTextColor() throws MBFormatException {
         return parse.convertToColor(parse.optional(String.class, paint, "text-color", "#000000"));
@@ -1557,7 +1494,6 @@ public class SymbolMBLayer extends MBLayer {
      * <p>The color of the text's halo, which helps it stand out from backgrounds.
      *
      * @return The label halo color.
-     * @throws MBFormatException
      */
     public Color getTextHaloColor() throws MBFormatException {
         if (!paint.containsKey("text-halo-color")) {
@@ -1583,7 +1519,6 @@ public class SymbolMBLayer extends MBLayer {
      * <p>Distance of halo to the font outline. Max text halo width is 1/4 of the font-size.
      *
      * @return Size of the label halo
-     * @throws MBFormatException
      */
     public Number getTextHaloWidth() throws MBFormatException {
         return parse.optional(Number.class, paint, "text-halo-width", 0.0);
@@ -1593,7 +1528,6 @@ public class SymbolMBLayer extends MBLayer {
      * Access text-halo-width as literal or function expression
      *
      * @return Size of the label halo
-     * @throws MBFormatException
      */
     public Expression textHaloWidth() throws MBFormatException {
         return parse.percentage(paint, "text-halo-width", 0.0);
@@ -1605,7 +1539,6 @@ public class SymbolMBLayer extends MBLayer {
      * <p>The halo's fadeout distance towards the outside.
      *
      * @return Size of the label halo fade
-     * @throws MBFormatException
      */
     public Number getTextHaloBlur() throws MBFormatException {
         return parse.optional(Number.class, paint, "text-halo-blur", 0.0);
@@ -1615,7 +1548,6 @@ public class SymbolMBLayer extends MBLayer {
      * Access text-halo-blur as literal or function expression
      *
      * @return Size of the label halo fade
-     * @throws MBFormatException
      */
     public Expression textHaloBlur() throws MBFormatException {
         return parse.percentage(paint, "text-halo-blur", 0.0);
@@ -1628,7 +1560,6 @@ public class SymbolMBLayer extends MBLayer {
      * indicate right and down, while negative values indicate left and up.
      *
      * @return The translation of hte lable form its anchor.
-     * @throws MBFormatException
      */
     public int[] getTextTranslate() {
         return parse.array(paint, "text-translate", new int[] {0, 0});
@@ -1641,7 +1572,6 @@ public class SymbolMBLayer extends MBLayer {
      * indicate right and down, while negative values indicate left and up.
      *
      * @return The translation of hte lable form its anchor.
-     * @throws MBFormatException
      */
     public Point textTranslate() {
         int[] translate = getTextTranslate();
@@ -2003,7 +1933,6 @@ public class SymbolMBLayer extends MBLayer {
      * be handled by the {@link SpriteGraphicFactory}, but this method also supports GeoTools {@link
      * Mark}s as a special case.
      *
-     * @param transformer
      * @param styleContext The containing style (used to get the sprite source)
      * @return A graphic based on this style's 'icon-image' property.
      */
